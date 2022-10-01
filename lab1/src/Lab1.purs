@@ -18,12 +18,8 @@ snoc Nil x = singleton(x)
 snoc (Cons head tail) x = Cons head $ snoc tail x
  
 length :: forall a. List a -> Int 
-length a = length' a 0
-
-length' :: forall a. List a -> Int -> Int
-length' Nil totalCount = totalCount
-length' (Cons head tail) currentCount = length' tail (currentCount  + 1)
-
+length Nil = 0
+length (Cons _ tail) = 1 + length tail 
 
 test :: Effect Unit
 test = do
