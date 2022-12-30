@@ -15,7 +15,6 @@ instance eqMaybe :: Eq a => Eq (Maybe a) where
   eq _ _ = false
 
 instance ordMaybe :: Ord a => Ord (Maybe a) where
-  compare Nothing Nothing = EQ
   compare (Just x) (Just y) = compare x y
   compare _ _ = EQ
 
@@ -40,3 +39,4 @@ test = do
   log "------------------"
   log $ show $ Just "abc"
   log $ show $ (Nothing :: Maybe Unit)
+  
